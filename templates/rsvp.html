@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}RSVP{% endblock %}
+{% block content %}
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="hero-unit">
+				<div class="row-fluid">
+					<div class="offset3 span6">
+						<h2>RSVP</h2><br />
+						<center><img src="static/img/chester.png"></center><br/>
+						<p>
+                        	We can&#8217;t wait to see you and hope our special evening is a special date night for you, too -- with plenty of dinner, drinks and dancing!
+                         </p>
+                         <p>
+                             Formal dress is requested.
+                         </p>
+                         <p>
+                                    The favour of a reply is asked by the <br />twentieth of September.<br />
+				{% if error %}<p class="error label label-important"><strong>Error:</strong> {{ error }}</p>{% endif %}
+				<form action="{{ url_for('rsvp') }}" method="POST" class="form-horizontal">
+				<div class="control-group">
+               		             	<label class="control-label" for="inputName">Name:</label>
+                                	<div class="controls">
+                        	            	<input type="text" id="inputName" name="inputName">
+                        	        </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputGuest">Spouse or partner name:</label>
+                    <div class="controls">
+                        <input type="text" id="inputGuest"  name="inputGuest">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">Email:</label>
+                    <div class="controls">
+                        <input type="text" id="inputEmail" name="inputEmail">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="radio">
+                        <input type="radio" name="decision" id="optionsAttending" value="attending" checked>
+                        Accepts with pleasure
+                        </label>
+                        <label class="radio">
+                        <input type="radio" name="decision" id="optionNotAttending" value="notattending">
+                        Declines with regret
+                        </label>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="inputComment">Questions or Comments?</label>
+		    <div class="controls">
+			<input type="text"  name="inputComment" id="inputComment">
+		    </div>
+		</div>
+		<div class="control-group">
+		    <div class="controls">
+                        <input type="submit" class="btn" value="Send">
+                    </div>
+		</div>
+                 </form>
+                    	</p>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
