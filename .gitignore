@@ -1,2 +1,4 @@
 rsvp.db
 default_settings.py
+*.pyc
+default_settings.py
